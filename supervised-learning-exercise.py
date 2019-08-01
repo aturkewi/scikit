@@ -17,13 +17,11 @@ digits_y_test = y_digits[indices[-ten_percent:]]
 
 from sklearn.neighbors import KNeighborsClassifier
 knn = KNeighborsClassifier()
-
 knn.fit(digits_X_train, digits_y_train)
-
-knn.predict(digits_X_test)
-
-digits_y_test
+print("Nearest Neighor:")
+print(knn.score(digits_X_test, digits_y_test))
 
 log = linear_model.LogisticRegression(solver='lbfgs', C=1e5, multi_class='multinomial', max_iter=1000)
 log.fit(digits_X_train, digits_y_train)
-log.predict(digits_X_test)
+print("LogisticRegression:")
+print(log.score(digits_X_test, digits_y_test))
