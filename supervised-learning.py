@@ -135,6 +135,7 @@ y = iris.target
 X = X[y != 0, :2]
 y = y[y != 0]
 
+np.random.seed(0)
 indices = np.random.permutation(len(X))
 ten_percent = int(len(X)/10)
 iris_X_train = X[indices[:-ten_percent]]
