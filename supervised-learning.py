@@ -97,3 +97,52 @@ log.fit(iris_X_train, iris_y_train)
 #     fit_intercept=True, intercept_scaling=1, l1_ratio=None, max_iter=100,
 #     multi_class='multinomial', n_jobs=None, penalty='l2', random_state=None,
 #     solver='lbfgs', tol=0.0001, verbose=0, warm_start=False)
+
+# Support Vector Machines (SVMs)
+# CAN LOAD HERE!
+import numpy as np
+from sklearn import datasets
+iris = datasets.load_iris()
+iris_X = iris.data
+iris_y = iris.target
+np.unique(iris_y)
+
+# Split iris data in train and test data
+# A random permutation, to split the data randomly
+np.random.seed(0)
+indices = np.random.permutation(len(iris_X))
+iris_X_train = iris_X[indices[:-10]]
+iris_y_train = iris_y[indices[:-10]]
+iris_X_test = iris_X[indices[-10:]]
+iris_y_test = iris_y[indices[-10:]]
+
+from sklearn import svm
+import numpy as np
+svc = svm.SVC(kernel='linear')
+svc.fit(iris_X_train, iris_y_train)
+
+# You can set different parameters to determine what kind of function is created.
+svc = svm.SVC(kernel='linear')
+svc = svm.SVC(kernel='poly', degree=3)
+svc = svm.SVC(kernel='rbf')
+
+# HOMEWORK!
+
+iris = datasets.load_iris()
+X = iris.data
+y = iris.target
+
+X = X[y != 0, :2]
+y = y[y != 0]
+
+indices = np.random.permutation(len(X))
+ten_percent = int(len(X)/10)
+iris_X_train = X[indices[:-ten_percent]]
+iris_y_train = y[indices[:-ten_percent]]
+iris_X_test = X[indices[-ten_percent:]]
+iris_y_test = y[indices[-ten_percent:]]
+
+for kernel in ('linear', 'poly', 'rbf'):
+    svc = svm.SVC(kernel=kernel)
+    svc.fit(iris_X_train, iris_y_train)
+    print(kernel + ": " + str(svc.score(iris_X_test, iris_y_test)))
