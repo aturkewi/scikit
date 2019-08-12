@@ -9,4 +9,4 @@
 
 ## Working
 
-Left off at: https://scikit-learn.org/stable/tutorial/statistical_inference/supervised_learning.html#support-vector-machines-svms
+Left off at: https://scikit-learn.org/stable/tutorial/statistical_inference/model_selection.html
