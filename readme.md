@@ -9,4 +9,4 @@
 
 ## Working
 
-Left off at: https://scikit-learn.org/stable/tutorial/statistical_inference/model_selection.html#grid-search-and-cross-validated-estimators
+Left off at: https://scikit-learn.org/stable/tutorial/statistical_inference/model_selection.html#cross-validated-estimators
